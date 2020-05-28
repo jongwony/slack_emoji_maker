@@ -6,7 +6,7 @@ ffmpeg -i $1 -vf "scale=128:-1" -fs 8K -r 10 /tmp/slack_emoji_maker/%5d.$2
 
 ls -lh /tmp/slack_emoji_maker
 
-convert -delay 10 -define gif:extent=128K /tmp/slack_emoji_maker/*.$2 temp.gif
+convert -delay 10 /tmp/slack_emoji_maker/*.$2 temp.gif
 
 magick temp.gif -fuzz 10% -layers Optimize $3
 
